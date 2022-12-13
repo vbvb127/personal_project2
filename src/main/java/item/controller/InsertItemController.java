@@ -32,7 +32,7 @@ public class InsertItemController extends HttpServlet {
 		String item_cnt = request.getParameter("item_cnt");
 		String content = request.getParameter("content");
 		
-		System.out.println("사용자 정보 추출 완료");
+		System.out.println("사용자 정보 추출 완료"); 
 		
 		ItemVO vo = new ItemVO();
 		vo.setTitle(title);
