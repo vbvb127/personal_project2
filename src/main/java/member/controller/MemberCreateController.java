@@ -20,7 +20,6 @@ public class MemberCreateController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		System.out.println("create");
 
 		MemberVO vo = new MemberVO();
 		MemberDAO memberDAO = new MemberDAO();

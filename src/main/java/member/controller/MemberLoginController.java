@@ -31,8 +31,6 @@ public class MemberLoginController extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-		System.out.println(id);
-		System.out.println(password);
 		
 		vo.setM_id(id);
 		vo.setM_password(password);
@@ -44,10 +42,7 @@ public class MemberLoginController extends HttpServlet {
 			int login = memberDAO.checkLogin(id,password);
 			
 			if(login == 0){
-				System.out.println("로그인 성공");
 				MemberVO member = memberDAO.getUser(vo);
-				System.out.println(member.toString());	
-				System.out.println("getuser"+member.getM_id());
 				session.setAttribute("name", member.getM_name());
 				session.setAttribute("id", member.getM_id());
 				request.getRequestDispatcher("/GetItemList.do").forward(request, response);

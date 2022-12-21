@@ -18,6 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<%=request.getContextPath()%>/css/detail.css" rel="stylesheet">
     </head>
+
     <body>
      <%@include file="./fix/navigation.jsp" %>
         <!-- Product section-->
@@ -29,21 +30,27 @@
                         <div class="small mb-1">item_no: ${item.item_no}</div>
                         <h1 class="display-5 fw-bolder">${item.title}</h1>
                         <div class="fs-5 mb-5">
-                            <span>${item.item_price } 원</span>
+                            <span>${item.item_price} 원</span>
                         </div>
                         <p class="lead">${item.content}</p>
                         <div class="d-flex">
-                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                            <input class="form-control text-center me-3" id="inputQuantity" type="number" id="item_ord" style="max-width: 3rem" />
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
+                            </button>&nbsp
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="orderServlet" onclick="location.href='<%=request.getContextPath()%>/GetOrderSheet.do?item_no=${item.item_no}&id=${id}'" >
+                                <i class="bi bi-emoji-smile me-1"></i> 
+                                	Buy
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+   
      <%@include file="./fix/footer.jsp" %>
+     <script type="text/javascript" src="<%=request.getContextPath()%>/purchase/script/orderSheet.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 

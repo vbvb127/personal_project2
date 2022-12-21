@@ -41,7 +41,6 @@ public class ItemDAO {
 				item.setContent(rs.getString("item_content"));
 				item.setItem_price(rs.getInt("item_price"));
 				item.setItem_cnt(rs.getInt("item_cnt"));				
-				
 				itemList.add(item);
 			}
 		} catch (SQLException e) {
@@ -95,11 +94,9 @@ public class ItemDAO {
 			//하나로 넣으려다가 item_no null들어와서 나눴음
 			stmt = conn.prepareStatement(INSERT_ITEM_NO);
 			rs = stmt.executeQuery();
-
 			if (rs.next()) {
 			item = new ItemVO();
 			item.setItem_no(rs.getString("item_no"));
-			
 			
 			stmt = conn.prepareStatement(INSERT_ITEM);
 			stmt.setString(1, item.getItem_no());
